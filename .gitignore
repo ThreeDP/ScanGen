@@ -1,0 +1,8 @@
+
+/* Exclui arquivos com dados dos clientes
+*.csv
+*.xlsx
+*.xls
+
+/* Não exclui o arquivo.
+!rotulo.xlsx
