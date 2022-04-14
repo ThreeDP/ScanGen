@@ -1,12 +1,15 @@
 from catchCsv import catch_csv
+from manageFiles import find_files
+
+path = "./Arquivos/"
 
 def create_table():
-    #files = [str(x) for x in input().split(" ")]
-    files = ['Arq01.csv', 'Arq02.csv']
+    files = find_files(path)
     table = list()
 
     for file in files:
-        data = catch_csv(file)
+        pathfile = path + file
+        data = catch_csv(pathfile)
 
         y = data[0].replace('"', '')
         header = y.split(';')
