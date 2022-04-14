@@ -1,7 +1,8 @@
 from catchCsv import catch_csv
 
 def create_table():
-    files = [str(x) for x in input().split(" ")]
+    #files = [str(x) for x in input().split(" ")]
+    files = ['Arq01.csv', 'Arq02.csv']
     table = list()
 
     for file in files:
