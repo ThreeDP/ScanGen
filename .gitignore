@@ -3,6 +3,7 @@
 *.csv
 *.xlsx
 *.xls
+*.zip
 
 /* Não exclui o arquivo.
 !rotulo.xlsx

@@ -1,6 +1,6 @@
 from createTable import create_table
 from openpyxl import workbook, load_workbook
-from openpyxl.utils import get_column_letter
+from compress import compress
 
 wb = load_workbook('Rotulo.xlsx')
 ws = wb['Envolope']
@@ -14,17 +14,20 @@ def te(n, table):
         try:
             ws[p] = table[n]['Nome']
             print(p, n)
+
+        except IndexError as index:
+            ws[p] = ""
+
         except Exception as e:
             print(e)
-            ws[p] = ""
             
         n+= 1
     
-    string = './patterns/Clientes' + str(n) + '.xlsx'
+    string = './Patterns/Clientes' + str(n) + '.xlsx'
     wb.save(string)
     return n
 
 while count < len(table):
     count = te(count, table)
-    print(count)
-    
+
+compress('./')
