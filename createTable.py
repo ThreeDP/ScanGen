@@ -27,4 +27,4 @@ def create_table():
                     table.append(row)
                     break
         
-    return len(table)
+    return table

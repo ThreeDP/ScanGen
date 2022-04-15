@@ -16,10 +16,11 @@ def te(n, table):
             print(p, n)
         except Exception as e:
             print(e)
-            break
+            ws[p] = ""
+            
         n+= 1
     
-    string = 'Clientes' + str(n) + '.xlsx'
+    string = './patterns/Clientes' + str(n) + '.xlsx'
     wb.save(string)
     return n
 
