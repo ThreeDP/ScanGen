@@ -1,7 +1,11 @@
 from catchCsv import catch_csv
-from manageFiles import find_files
+from iosActions import find_files
+from openpyxl import load_workbook
+
 
 path = "./Arquivos/"
+wb = load_workbook('Rotulo.xlsx')
+ws = wb['Envolope']
 
 def create_table():
     files = find_files(path)
@@ -28,3 +32,23 @@ def create_table():
                     break
         
     return table
+
+def insert_data(name_index, table):
+    positions = ['C5', 'H5', 'C12', 'H12', 'C19', 'H19', 'C26', 'H26', 'C33', 'H33'] # Posições a serem inserido os dados.
+
+    for position in positions:
+        try:
+            ws[position] = table[name_index]['Nome'] # Inserção do Nome do cliente na posição da interação.
+
+        except IndexError as index: # Limpa os nomes duplicados da interação anterior caso houver estouro da lista table.
+            ws[position] = "" 
+           
+
+        except Exception as e:
+            print(e)
+            
+        name_index+= 1
+    
+    label_file = './Patterns/Clientes' + str(name_index) + '.xlsx' 
+    wb.save(label_file) # Salva o arquivo na pasta e com o nome estabelecido na string label_file.
+    return name_index
