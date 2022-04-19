@@ -1,6 +1,6 @@
 from manageFiles import create_table, insert_data
 from compress import compress
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__) 
 

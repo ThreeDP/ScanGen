@@ -1,1 +1,1 @@
-web: python scanGen.py
+web: gunicorn scanGen:app
