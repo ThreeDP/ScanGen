@@ -1,17 +1,17 @@
 import os
 
-def find_files(local):
+def find_files(local): # Encontra os arquivos existentes dentro de uma diretorio especifica.
     try:
         return os.listdir(local)
     except Exception as e:
-        print(e)
+        continue
 
-def del_files(local, files):
+def del_files(local, files): # Remove todos os arquivos dentro de umas diretorio especifica.
     if files:
         for file in files:
             os.remove(local + file)
 
-def make_dir(local):
+def make_dir(local): # Cria uma diretorio se não existir.
     if not os.path.isdir(local):
         os.makedirs(local)
         return
@@ -19,7 +19,7 @@ def make_dir(local):
         files = find_files(local)
         del_files(local, files)
 
-def remove_dir(local):
+def remove_dir(local): # Deleta todos os aqueivos da diretorio e deleta o diretorio
     files = find_files(local)
     del_files(local, files)
     os.rmdir(local)
