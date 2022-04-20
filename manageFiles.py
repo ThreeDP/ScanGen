@@ -1,13 +1,15 @@
 from catchCsv import catch_csv
-from iosActions import find_files
+from iosActions import find_files, make_dir
 from openpyxl import load_workbook
 
 
 path = "./Arquivos/"
+path_patterns ="./Patterns/"
 wb = load_workbook('Rotulo.xlsx')
 ws = wb['Envolope']
 
 def create_table():
+    
     files = find_files(path)
     table = list()
 
@@ -49,6 +51,6 @@ def insert_data(name_index, table):
             
         name_index+= 1
     
-    label_file = './Patterns/Clientes' + str(name_index) + '.xlsx' 
+    label_file = path_patterns + 'Clientes' + str(name_index) + '.xlsx' 
     wb.save(label_file) # Salva o arquivo na pasta e com o nome estabelecido na string label_file.
     return name_index

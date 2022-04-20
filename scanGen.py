@@ -1,18 +1,28 @@
 from manageFiles import create_table, insert_data
 from compress import compress
 from flask import Flask, jsonify
+from iosActions import make_dir, remove_dir
 
 app = Flask(__name__) 
 
 @app.route('/')
 def scangen():     
-    #name_index = 0
-    #table = create_table()
+    
+    make_dir(path) # Cria uma pasta ou deleta os arquivos de uma existente.
+    make_dir(path_patterns)
 
-    #while name_index < len(table):
-        #name_index = insert_data(name_index, table)
+    name_index = 0
+    ## Função para import os arquivos
+    table = create_table()
 
-    #compress('./')
+    while name_index < len(table):
+        name_index = insert_data(name_index, table)
+
+    compress('./')
+
+    # Função para download dos arquivos.
+    remove_dir(path) # Deleta os arquivos de uma existente e a pasta.
+    remove_dir(path_patterns)
 
     return 'teste'
 
