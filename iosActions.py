@@ -23,5 +23,3 @@ def remove_dir(local):
     files = find_files(local)
     del_files(local, files)
     os.rmdir(local)
-
-remove_dir('./Arquivos/')

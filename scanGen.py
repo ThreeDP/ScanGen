@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def scangen():     
     
-    make_dir(path) # Cria uma pasta ou deleta os arquivos de uma existente.
+    #make_dir(path) # Cria uma pasta ou deleta os arquivos de uma existente.
     make_dir(path_patterns)
 
     name_index = 0
