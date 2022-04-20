@@ -7,8 +7,9 @@ def find_files(local):
         print(e)
 
 def del_files(local, files):
-    for file in files:
-        os.remove(local + file)
+    if files:
+        for file in files:
+            os.remove(local + file)
 
 def make_dir(local):
     if not os.path.isdir(local):
