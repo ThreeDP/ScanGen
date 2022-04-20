@@ -3,7 +3,10 @@ from compress import compress
 from flask import Flask, jsonify
 from iosActions import make_dir, remove_dir
 
-app = Flask(__name__) 
+app = Flask(__name__)
+
+path = "./Arquivos/"
+path_patterns ="./Patterns/"
 
 @app.route('/')
 def scangen():     
