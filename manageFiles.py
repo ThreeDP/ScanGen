@@ -5,7 +5,7 @@ from openpyxl import load_workbook
 wb = load_workbook('Rotulo.xlsx')
 ws = wb['Envolope']
 
-def create_table():
+def create_table(path):
     
     files = find_files(path)
     table = list()
@@ -32,7 +32,7 @@ def create_table():
         
     return table
 
-def insert_data(name_index, table):
+def insert_data(name_index, table, path):
     positions = ['C5', 'H5', 'C12', 'H12', 'C19', 'H19', 'C26', 'H26', 'C33', 'H33'] # Posições a serem inserido os dados.
 
     for position in positions:
@@ -48,6 +48,6 @@ def insert_data(name_index, table):
             
         name_index+= 1
     
-    label_file = path_patterns + 'Clientes' + str(name_index) + '.xlsx' 
+    label_file = path + 'Clientes' + str(name_index) + '.xlsx' 
     wb.save(label_file) # Salva o arquivo na pasta e com o nome estabelecido na string label_file.
     return name_index

@@ -5,21 +5,20 @@ from iosActions import make_dir, remove_dir
 
 app = Flask(__name__)
 
-path = "./Arquivos/"
-path_patterns ="./Patterns/"
-
 @app.route('/')
-def scangen():     
+def scangen():    
+    path = "./Arquivos/"
+    path_patterns ="./Patterns/" 
     
     make_dir(path) # Cria uma pasta ou deleta os arquivos de uma existente.
     make_dir(path_patterns)
 
     name_index = 0
     ## Função para import os arquivos
-    table = create_table()
+    table = create_table(path)
 
     while name_index < len(table):
-        name_index = insert_data(name_index, table)
+        name_index = insert_data(name_index, table, path_patterns)
 
     compress('./')
 
