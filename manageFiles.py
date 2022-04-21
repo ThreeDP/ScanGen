@@ -51,3 +51,9 @@ def insert_data(name_index, table, path):
     label_file = path + 'Clientes' + str(name_index) + '.xlsx' 
     wb.save(label_file) # Salva o arquivo na pasta e com o nome estabelecido na string label_file.
     return name_index
+
+def import_files(path): # Necessário o envio de cada arquivo com uma key diferente.
+    files = request.files
+    for file_index in range(0, len(files), 1):
+        file = request.files.get(str(file_index))
+        file.save(path + file.filename)
