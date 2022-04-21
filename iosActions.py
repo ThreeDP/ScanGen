@@ -1,10 +1,10 @@
 import os
 
-def find_files(local): # Encontra os arquivos existentes dentro de uma diretorio especifica.
+def find_files(path): # Encontra os arquivos existentes dentro de uma diretorio especifica.
     try:
-        return os.listdir(local)
+        return os.listdir(path)
     except Exception as e:
-        continue
+        pass
 
 def del_files(local, files): # Remove todos os arquivos dentro de umas diretorio especifica.
     if files:
